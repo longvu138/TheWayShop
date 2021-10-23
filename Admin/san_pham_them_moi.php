@@ -60,7 +60,7 @@ if (isset($_POST['btnSubmit']) && isset($_FILES['anhSanPham'])) {
                             <div class="card-header">
                                 <h3 class="text-center font-weight-light my-4">Thêm Mới Sản Phẩm</h3>
                             </div>
-
+                            
 
                             <div class="card-body">
                                 <form method="POST" action="san_pham_them_moi.php" enctype="multipart/form-data">
@@ -68,7 +68,7 @@ if (isset($_POST['btnSubmit']) && isset($_FILES['anhSanPham'])) {
                                         <option class="text-center" selected> -- Danh mục sản phẩm -- </option>
                                         <?php
                                         // 1. Load file cấu hình để kết nối đến máy chủ CSDL 
-                                        include("../database/config.php");
+                                        // include("../database/config.php");
                                         // 2. Viết câu lệnh truy vấn lấy ra được dữ liệu mong   muốn (Người dùng đã lưu trong CSDL)
                                         $sql = "select * from category";
                                         //3. Thực thi câu lệnh lấy dữ liệu mong muốn

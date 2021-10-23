@@ -13,9 +13,8 @@ include "./include/header.php"
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="index.php">Quản trị hệ thống</a></li>
                     <li class="breadcrumb-item active">Quản trị sản phẩm</li>
-                    <li class="breadcrumb-item active"><a href="san_pham_them_moi.php">Thêm mới sản phẩm</a></li>
                 </ol>
-
+                <a href="san_pham_them_moi.php" class="btn btn-primary mb-4"> <i class="fas fa-plus-square"></i> Thêm Mới Sản Phẩm</a>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -53,18 +52,20 @@ include "./include/header.php"
                                         $i++;; ?>
                                         <tr>
                                             <td class="text-center " style="width: 20px;"><?php echo $i; ?></td>
-                                            <td class="text-center " style="width: 200px;"><?php echo $row["title"]; ?></td>
+                                            <td class="text-center " style="width: 170px;"><?php echo $row["title"]; ?></td>
                                             <!-- format số -->
-                                            <td class="text-center" style="width: 120px;"><?php echo number_format($row["price"]); ?> VNĐ</td>
+                                            <td class="text-center" style="width: 150px;"><?php echo number_format($row["price"]); ?> VNĐ</td>
                                             <!-- <td><?php echo $row["discount"]; ?></td> -->
                                             <td class="text-center"><img style="width:150px; height: 200px;" src="./assets/<?php echo $row["thumbnail"]; ?>" alt="img"></td>
                                             <td style="width: 400px;"><?php echo $row["description"]; ?></td>
                                             <td class="text-center " style="width: 120px;">
-                                            <a style="text-decoration: none;" href="san_pham_sua.php?id=<?php echo $row["id"]; ?>">
-                                            <i class="fas fa-edit"></i> Cập nhật</a></td>
+                                                <a style="text-decoration: none;" href="san_pham_sua.php?id=<?php echo $row["id"]; ?>">
+                                                    <i class="fas fa-edit"></i> Cập nhật</a>
+                                            </td>
                                             <td class="text-center " style="width: 80px;">
-                                            <a style="text-decoration: none; color:red" href="san_pham_xoa.php?id=<?php echo $row["id"]; ?>">
-                                            <i class="fas fa-trash"></i> Xóa</a></td>
+                                                <a style="text-decoration: none; color:red" href="san_pham_xoa.php?id=<?php echo $row["id"]; ?>">
+                                                    <i class="fas fa-trash"></i> Xóa</a>
+                                            </td>
                                         </tr>
                                     <?php
                                     }; ?>

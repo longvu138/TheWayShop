@@ -4,6 +4,7 @@ if (!isset($_SESSION['role_id']) || ($_SESSION['role_id'] != 1)) {
     header("Location: dang_nhap.php");
     exit();
 }
+include("../database/config.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

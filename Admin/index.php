@@ -17,7 +17,7 @@ include "./include/header.php";
                 </ol>
                 <?php
                 // 1. Load file cấu hình để kết nối đến máy chủ CSDL 
-                include("../database/config.php");
+               
                 // 2. Viết câu lệnh truy vấn lấy ra được dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
                 $lay_tat_ca_nguoi_dung = "SELECT * FROM user where deleted =0";
                 $lay_tat_ca_san_pham = "SELECT * FROM product where deleted = 0";
