@@ -73,7 +73,7 @@ include "./include/header.php"
 
                                                 <div class="col">
                                                     <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
-                                                    <textarea name="moTa" class="form-control" id="exampleFormControlTextarea1" rows="5"><?php echo $value['description'] ?>" </textarea>
+                                                    <textarea name="moTa" class="form-control" id="exampleFormControlTextarea1" rows="5"><?php echo $value['description'] ?> </textarea>
                                                 </div>
                                             </div>
                                         </div>

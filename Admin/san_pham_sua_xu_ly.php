@@ -11,9 +11,16 @@ if (isset($_POST['btnSubmit']) && isset($_FILES['anhSanPham'])) {
     $id = $_POST['id'];
     //KiểM tra dữ liệu có bị lỗi hay không
     if ($_FILES['anhSanPham']['error'] > 0) {
-        echo " <script> alert(' Bạn chưa chọn ảnh!');
-        // quay lại trang cũ
-        window.history.back(); </script>";
+        $sql = "UPDATE  product set title = '$tenSanPham' ,category_id = '$danhMucSanPham' ,price = '$giaBan',
+        discount = '$giamGia' ,description = '$moTa' ,updated_at = '$updated_at' where id = '$id'";
+
+        // nếU thêm thành công sản phẩm thì lưu vào csdl, đưa ra thông báo và quay về trang danh sách sản phẩm
+        if (mysqli_query($ket_noi, $sql)) {
+            echo '<script language="javascript">alert("Cập nhật sản phẩm thành công");window.location="san_pham.php"; </script>';
+        }
+        else {
+            echo '<script language="javascript">alert("Cập nhật sản phẩm không thành công");window.location="san_pham.php"; </script>';
+        }
        
     } else {
 
@@ -36,6 +43,9 @@ if (isset($_POST['btnSubmit']) && isset($_FILES['anhSanPham'])) {
             $sql = "UPDATE  product set title = '$tenSanPham' ,category_id = '$danhMucSanPham' ,price = '$giaBan',
             discount = '$giamGia' ,thumbnail = '$image',description = '$moTa'
             ,updated_at = '$updated_at' where id = '$id'";
+
+
+            // die();
             // nếU thêm thành công sản phẩm thì lưu vào csdl, đưa ra thông báo và quay về trang danh sách sản phẩm
             if (mysqli_query($ket_noi, $sql)) {
                 echo '<script language="javascript">alert("Cập nhật sản phẩm thành công");window.location="san_pham.php"; </script>';

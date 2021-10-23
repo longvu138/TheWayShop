@@ -19,8 +19,8 @@ include "./include/header.php";
                 // 1. Load file cấu hình để kết nối đến máy chủ CSDL 
                 include("../database/config.php");
                 // 2. Viết câu lệnh truy vấn lấy ra được dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
-                $lay_tat_ca_nguoi_dung = "SELECT * FROM user";
-                $lay_tat_ca_san_pham = "SELECT * FROM product";
+                $lay_tat_ca_nguoi_dung = "SELECT * FROM user where deleted =0";
+                $lay_tat_ca_san_pham = "SELECT * FROM product where deleted = 0";
                 $so_luong_nguoi_dung = mysqli_query($ket_noi, $lay_tat_ca_nguoi_dung);
                 $so_luong_san_pham = mysqli_query($ket_noi, $lay_tat_ca_san_pham);
                 // 5. Lấy số lượng người dùng
