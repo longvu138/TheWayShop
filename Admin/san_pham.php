@@ -41,7 +41,7 @@ include "./include/header.php"
                                     // 1. Load file cấu hình để kết nối đến máy chủ CSDL 
                                     include("../database/config.php");
                                     // 2. Viết câu lệnh truy vấn lấy ra được dữ liệu mong   muốn (Người dùng đã lưu trong CSDL)
-                                    $sql = "SELECT * FROM product";
+                                    $sql = "SELECT * FROM product Where deleted = 0";
 
                                     //3. Thực thi câu lệnh lấy dữ liệu mong muốn
                                     $san_pham = mysqli_query($ket_noi, $sql);
