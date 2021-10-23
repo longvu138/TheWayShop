@@ -2,36 +2,9 @@
 $title = "Quản Trị Người Dùng";
 include "./include/header.php" ?>
 <div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div style="font-size: 25px;" class="sb-sidenav-menu-heading text-center text-white font-weight-bold">MENU</div>
-                    <a class="nav-link" href="index.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị hệ thống
-                    </a>
-                    <a class="nav-link" href="nguoi_dung.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị người dùng
-                    </a>
-                    <a class="nav-link" href="san_pham.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị sản phẩm
-                    </a>
-                    <a class="nav-link" href="lien_he.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị liên hệ
-                    </a>
-
-                </div>
-            </div>
-            <div class="sb-sidenav-footer">
-                <div class="small">User:....</div>
-
-            </div>
-        </nav>
-    </div>
+    <?php
+    include "./include/sidebar.php";
+    ?>
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
@@ -49,14 +22,14 @@ include "./include/header.php" ?>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
-                                <tr class="text-center">
+                                <tr>
                                     <th>STT</th>
                                     <th>Tên người dùng</th>
                                     <th>Email</th>
                                     <th>Điện thoại</th>
                                     <th>Địa Chỉ</th>
                                     <th>Quyền Hạn</th>
-                                    <th>Cập nhật</th>
+                                    <th>Sửa</th>
                                     <th>Xoá</th>
                                 </tr>
                             </thead>
@@ -82,8 +55,8 @@ include "./include/header.php" ?>
                                         <td><?php echo $row["phone_number"]; ?></td>
                                         <td><?php echo $row["address"]; ?></td>
                                         <td><?php echo $row["name"]; ?></td>
-                                        <td><a href="./nguoi_dung_sua.php?id=<?= $row['id']?>">Cập nhật</a></td>
-                                        <td>Xóa</td>
+                                        <td><a href="./nguoi_dung_sua.php?id=<?php echo $row['id'] ?>"> Sửa </a></td>
+                                        <td><a href="./nguoi_dung_xoa.php?id=<?php echo $row['id'] ?>"> Xoá </a></td>
                                     </tr>
                                 <?php
                                 }; ?>
@@ -92,15 +65,15 @@ include "./include/header.php" ?>
                     </div>
                 </div>
             </div>
-            ...
-        </main>
-        <?php include('./include/footer.php')?>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<script src="js/datatables-simple-demo.js"></script>
-</body>
 
-</html>
+        </main>
+        <?php include('./include/footer.php') ?>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    </body>
+
+    </html>

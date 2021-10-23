@@ -1,37 +1,13 @@
-<?php 
- $title="QUẢN TRỊ HỆ THỐNG";
-include "./include/header.php" ; 
+<?php
+$title = "QUẢN TRỊ HỆ THỐNG";
+include "./include/header.php";
 ?>
 
 <div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div style="font-size: 25px;" class="sb-sidenav-menu-heading text-center text-white font-weight-bold">MENU</div>
-                    <a class="nav-link" href="index.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị hệ thống
-                    </a>
-                    <a class="nav-link" href="nguoi_dung.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị người dùng
-                    </a>
-                    <a class="nav-link" href="san_pham.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị Sản phẩm
-                    </a>
-                    <a class="nav-link" href="index.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Quản trị hệ thống
-                    </a>
-                </div>
-            </div>
-            <div class="sb-sidenav-footer">
-            </div>
-        </nav>
-    </div>
 
+    <?php
+    include "./include/sidebar.php";
+    ?>
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
@@ -43,17 +19,19 @@ include "./include/header.php" ;
                 // 1. Load file cấu hình để kết nối đến máy chủ CSDL 
                 include("../database/config.php");
                 // 2. Viết câu lệnh truy vấn lấy ra được dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
-                $getUser = "SELECT * FROM user";
-               
-                $so_luong_nguoi_dung = mysqli_query($ket_noi, $getUser);
-
+                $lay_tat_ca_nguoi_dung = "SELECT * FROM user";
+                $lay_tat_ca_san_pham = "SELECT * FROM product";
+                $so_luong_nguoi_dung = mysqli_query($ket_noi, $lay_tat_ca_nguoi_dung);
+                $so_luong_san_pham = mysqli_query($ket_noi, $lay_tat_ca_san_pham);
                 // 5. Lấy số lượng người dùng
-                $so_luong_nguoi_dung = mysqli_num_rows($so_luong_nguoi_dung);; ?>
+                $so_luong_nguoi_dung = mysqli_num_rows($so_luong_nguoi_dung);
+                $so_luong_san_pham = mysqli_num_rows($so_luong_san_pham);
+                ?>
 
                 <div class="row">
                     <div class="col-xl-4 col-md-6">
                         <div class="card bg-primary text-white mb-4">
-                            <div class="card-body">Quản trị người dùng (<?php echo $so_luong_nguoi_dung; ?> Người dùng)</div>
+                            <div class="card-body">Quản Lý Tài Khoản (<?php echo $so_luong_nguoi_dung; ?> Người dùng)</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-white stretched-link" href="nguoi_dung.php">Chi tiết</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -62,7 +40,7 @@ include "./include/header.php" ;
                     </div>
                     <div class="col-xl-4 col-md-6">
                         <div class="card bg-warning text-white mb-4">
-                            <div class="card-body">Quản trị sản phẩm</div>
+                            <div class="card-body">Quản Lý Sản Phẩm (<?php echo $so_luong_san_pham; ?> Sản Phẩm)</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-white stretched-link" href="san_pham.php">Chi tiết</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -71,7 +49,7 @@ include "./include/header.php" ;
                     </div>
                     <div class="col-xl-4 col-md-6">
                         <div class="card bg-success text-white mb-4">
-                            <div class="card-body">Quản lý đơn đặt hàng </div>
+                            <div class="card-body">Quản Lý Đơn Hàng</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-white stretched-link" href="sp_moi.php">Chi tiết</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
