@@ -17,19 +17,26 @@ include "./include/header.php";
                 </ol>
                 <?php
                 // 1. Load file cấu hình để kết nối đến máy chủ CSDL 
-               
+
                 // 2. Viết câu lệnh truy vấn lấy ra được dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
                 $lay_tat_ca_nguoi_dung = "SELECT * FROM user where deleted =0";
                 $lay_tat_ca_san_pham = "SELECT * FROM product where deleted = 0";
+                $lay_tat_ca_danh_muc = "SELECT * FROM category where deleted = 0";
+                $lay_tat_ca_don_hang = "SELECT * FROM orders where status = 0";
+
                 $so_luong_nguoi_dung = mysqli_query($ket_noi, $lay_tat_ca_nguoi_dung);
                 $so_luong_san_pham = mysqli_query($ket_noi, $lay_tat_ca_san_pham);
+                $so_luong_danh_muc = mysqli_query($ket_noi, $lay_tat_ca_danh_muc);
+                $so_luong_don_hang = mysqli_query($ket_noi, $lay_tat_ca_don_hang);
                 // 5. Lấy số lượng người dùng
                 $so_luong_nguoi_dung = mysqli_num_rows($so_luong_nguoi_dung);
                 $so_luong_san_pham = mysqli_num_rows($so_luong_san_pham);
+                $so_luong_danh_muc = mysqli_num_rows($so_luong_danh_muc);
+                $so_luong_don_hang = mysqli_num_rows($so_luong_don_hang);
                 ?>
 
                 <div class="row">
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-6 col-md-6">
                         <div class="card bg-primary text-white mb-4">
                             <div class="card-body">Quản Lý Tài Khoản (<?php echo $so_luong_nguoi_dung; ?> Người dùng)</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -38,7 +45,7 @@ include "./include/header.php";
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-6 col-md-6">
                         <div class="card bg-warning text-white mb-4">
                             <div class="card-body">Quản Lý Sản Phẩm (<?php echo $so_luong_san_pham; ?> Sản Phẩm)</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -47,17 +54,28 @@ include "./include/header.php";
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
+
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-md-6">
                         <div class="card bg-success text-white mb-4">
-                            <div class="card-body">Quản Lý Đơn Hàng</div>
+                            <div class="card-body">Quản Lý Danh Mục (<?php echo $so_luong_danh_muc; ?> Danh Mục) </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="sp_moi.php">Chi tiết</a>
+                                <a class="small text-white stretched-link" href="danh_muc.php">Chi tiết</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6">
+                        <div class="card bg-danger text-white mb-4">
+                            <div class="card-body">Quản Lý Đơn Hàng (<?php echo $so_luong_don_hang; ?> Đang xử lý)</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="don_hang.php">Chi tiết</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
         </main>
         <?php include "./include/footer.php" ?>
     </div>

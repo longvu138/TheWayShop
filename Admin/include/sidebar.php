@@ -20,6 +20,11 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Quản Lý Danh Mục
                     </a>
+
+                    <a class="nav-link" href="don_hang.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Quản Lý Đơn Hàng
+                    </a>
                     
                 </div>
             </div>
