@@ -73,7 +73,6 @@
                     <ul>
                         <li><a href="#">Tel: 0386487652-0936548254</a></li>
                         <li><a href="#">Time: 7Am-11Pm</a></li>
-                        <li><a href="">Danh sách yêu thích</a></li>
                         <li><a href="./admin/dang_nhap.php">Đăng nhập</a></li>
                     </ul>
                 </div>
@@ -112,7 +111,7 @@
                                  $noi_dung_san_pham = mysqli_query($ket_noi, $sql);
                  
                                  while ($row = mysqli_fetch_array($noi_dung_san_pham)) {; ?>
-                                <li><a href="chi_tiet_san_pham.php?id=<?php echo $row['id'] ?> "><?php echo $row['name'] ?></a></li>
+                                <li><a href="san_pham.php?id=<?php echo $row['id'] ?> "><?php echo $row['name'] ?></a></li>
                                 <?php }; ?>
                             </ul>
                         </li>
