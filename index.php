@@ -56,7 +56,7 @@
             include("./database/config.php");
 
             // 2. Viết câu lệnh truy vấn lấy ra được dữ liệu mong muốn (TIN TỨC đã lưu trong CSDL)
-            $sql = "SELECT * FROM product  where deleted = 0 ORDER BY created_at limit 6";
+            $sql = "SELECT * FROM product  where deleted = 0 ORDER BY created_at  desc limit 6";
 
             //3. Thực thi câu lệnh lấy dữ liệu mong muốn
             $noi_dung_san_pham_moi = mysqli_query($ket_noi, $sql);
