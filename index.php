@@ -75,7 +75,7 @@
                                     <p class="card-text color-danger">Giá Bán: <?php echo number_format($row["price"]); ?> VNĐ</p>
                                 </div>
                                 <div class="col-4 mt-3">
-                                    <a href="chi_tiet_san_pham.php? id=<?php echo $row["id"]; ?>" class="btn btn-primary">Chi tiết</a>
+                                    <a href="chi_tiet_san_pham.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Chi tiết</a>
                                 </div>
                             </div>
 
