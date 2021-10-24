@@ -2,8 +2,8 @@
     IMPORT FONTS
 -------------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,600i,700,700i,800,800i');
-@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i');
+/* @import url('https://fonts.googleapis.com/css?family=Arial:400,500,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i'); */
 
 
 /*
@@ -32,10 +32,12 @@
 /*------------------------------------------------------------------
     SKELETON
 -------------------------------------------------------------------*/
+
+
  body {
      color: #666666;
      font-size: 15px;
-     font-family: 'Quattrocento Sans', sans-serif;
+     font-family: Arial, Helvetica, sans-serif;
      line-height: 1.80857;
 }
  a {
@@ -726,7 +728,7 @@
      opacity: 0.5;
 }
  .cover-slides h1{
-     font-family: 'Montserrat', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
      font-weight: 500;
      font-size: 64px;
      color: #fff;
@@ -875,7 +877,7 @@
 }
  .why-text h5{
      font-size: 18px;
-     font-family: 'Montserrat', sans-serif;
+     font-family: Arial, Helvetica, sans-serif;
      padding: 0px;
      font-weight: 600;
 }
@@ -1996,7 +1998,6 @@
 }
  .new-account-login h5 {
      font-size: 18px;
-     color: #1111111;
      font-weight: 600;
 }
  .new-account-login h5 a:hover{
