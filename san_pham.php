@@ -34,9 +34,8 @@
                                         $sql = "SELECT * FROM category where deleted = 0  ";
                                         $result = mysqli_query($ket_noi, $sql);
                                         while ($row = mysqli_fetch_array($result)) {; ?>
-                                            <a style="font-size: 18px;" href="san_pham.php?id=<?php echo $row['id']; ?>" 
-                                            class=" text-capitalize list-group-item list-group-item-action  <?php echo $row['id'] == $id ? "active" : "" ?>">
-                                            <?php echo $row['name']; ?>
+                                            <a style="font-size: 18px;" href="san_pham.php?id=<?php echo $row['id']; ?>" class=" text-capitalize list-group-item list-group-item-action  <?php echo $row['id'] == $id ? "active" : "" ?>">
+                                                <?php echo $row['name']; ?>
                                             </a>
                                         <?php }; ?>
                                     </div>
@@ -68,19 +67,19 @@
                                 <div class="row">
                                     <!--  lấy ra prodcut theo category với id category và deleted = 0 -->
                                     <?php $id = $_GET['id'];
-                                    $sql = "select * from Product left join Category on
+                                    $sql = "select product.id,product.thumbnail,product.title,product.price from Product left join Category on
                               Product.category_id = Category.id where Product.deleted = 0 AND category_id = $id; ";
                                     $noi_dung_san_pham = mysqli_query($ket_noi, $sql);
                                     while ($row = mysqli_fetch_array($noi_dung_san_pham)) { ?>
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
-                                                    <img src="./admin//assets/<?php echo $row['thumbnail'] ?>" style="width: 265px; height: 344px;" alt="Image">
+                                                    <img src="./admin/assets/<?php echo $row['thumbnail'] ?>" style="width: 265px; height: 344px;" alt="Image">
                                                 </div>
                                                 <div class="why-text">
                                                     <h4><?php echo $row['title'] ?></h4>
                                                     <h4><?php echo number_format($row["price"]); ?> VNĐ</h4>
-                                                    <a href="" class="btn btn-danger mt-2"> <i class="fas fa-cart-plus"></i> Thêm vào giỏ </a>
+                                                    <a href="chi_tiet_san_pham.php? id=<?php echo $row["id"]; ?>" class="btn btn-primary mt-2"> Chi tiết </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -100,7 +99,7 @@
                                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                                 <div class="products-single fix">
                                                     <div class="box-img-hover">
-                                                        <img src="./admin//assets/<?php echo $row['thumbnail'] ?>" style="width: 200px; height: 250px;" alt="Image">
+                                                        <img src="./admin/assets/<?php echo $row['thumbnail'] ?>" style="width: 200px; height: 250px;" alt="Image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,7 +108,7 @@
                                                     <h4><?php echo $row['title'] ?></h4>
                                                     <h4><?php echo number_format($row["price"]); ?> VNĐ</h4>
                                                     <p><?php echo $row['description'] ?></p>
-                                                    <a href="" class="btn btn-danger mt-2 mb-0"> <i class="fas fa-cart-plus"></i> Thêm vào giỏ </a>
+                                                    <a href="" class="btn btn-primary mt-2 mb-0"> Chi tiết </a>
                                                 </div>
                                             </div>
                                         <?php } ?>
